@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css"  type="text/css ">
+    
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div>
+        <h1>¡Encuéntralo!</h1>
+        <br>
+        <h2> Adivina un número de 1 a 1000</h2>
+        <br>
+        <input type="text" id="num" class="num1">
+        <br>
+        <br>
+        <input type="button" value=" = " onclick="Buscar()" class="boton">
+        <a href="Index.html"><input type="button" id="back" name="atras" value="Regresar"></a>
+        </div>
+    </center>
+
+    <script>
+        
+        numaleatorio = Math.floor(Math.random() * 1000 + 1);
+        intentos = 1;
+
+        function Buscar() {
+            if (intentos == 10) {
+                alert("Perdiste, vuelve a intentarlo");
+                numaleatorio = Math.floor(Math.random() * 1000 + 1);
+                intentos = 1;
+            } else {
+                if (num.value > 0 && num.value <= 1000) {
+                    if (num.value == numaleatorio) {
+                        alert("!Ganaste, Felicidades¡, adivinaste el número en el intento"+intentos);
+                        numaleatorio = Math.floor(Math.random() * 1000 + 1);
+                        intentos = 1;
+
+                    } else {
+                        if (numaleatorio < num.value) {
+                            alert("El número es menor al número ingresado, te quedan " + (10 - intentos) + " intentos");
+                            intentos++;
+
+                        } else {
+                            alert("El número es mayor al número ingresado, te quedan" + (10 - intentos) + " intentos ");
+                            intentos++;
+
+                        }
+                    }
+                } else {
+                    alert("Por favor, ingrese un número entre 1 y 1000");
+
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
